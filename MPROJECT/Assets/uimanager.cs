@@ -6,32 +6,41 @@ using Firebase.Extensions;
 using UnityEngine.UI;
 public class uimanager : MonoBehaviour
 {
-    public List<CheckSlot> checkSlots = new List<CheckSlot>(); 
+    public Transform trans_SlotParent;
+    public CheckSlot slot;
+    
     public manager manager;
 
 
     public InputField input;
     public void LoadMessage(DataSnapshot snapshot)
     {
-        foreach(var a in checkSlots)
+        for (int i = 0; i < trans_SlotParent.childCount; i++)
         {
-            a.gameObject.SetActive(false);
+            trans_SlotParent.GetChild(i).gameObject.SetActive(false);
         }
+            
 
         int b = 0;
         foreach (var a in snapshot.Children)
         {
             string name = a.Child("username").Value.ToString();
             string message = a.Child("message").Value.ToString();
+            CheckSlot targetSlot = null;
+            if (b > trans_SlotParent.childCount - 1)
+            {
+                Instantiate(slot, trans_SlotParent);
+            }
 
-            checkSlots[b].SetUp(name, message);
-            checkSlots[b].gameObject.SetActive(true);
+            targetSlot = trans_SlotParent.GetChild(b).GetComponent<CheckSlot>();
+            targetSlot.SetUp(name, message);
+            targetSlot.gameObject.SetActive(true);
             b++;
         }
+        trans_SlotParent.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0);
     }
     public void SendMessage()
     {
-        Debug.Log(input.text);
         manager.SendMessage(input.text);
     }
 
