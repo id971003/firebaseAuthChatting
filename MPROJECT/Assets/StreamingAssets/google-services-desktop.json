@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "17840915487",
+    "firebase_url": "https://fir-chattingservicetest-default-rtdb.firebaseio.com",
+    "project_id": "fir-chattingservicetest",
+    "storage_bucket": "fir-chattingservicetest.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17840915487:android:3aac172a28eb45148e412a",
+        "android_client_info": {
+          "package_name": "com.tt.MPROJECT"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrrbEFbAE_2A6vMiGLAqJxG8i2jhus6tE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
